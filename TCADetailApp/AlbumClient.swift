@@ -7,7 +7,6 @@ protocol AlbumProvider {
 }
 
 struct AlbumClient: AlbumProvider {
-  
   private let service: Networking
   
   init(service: Networking = NetworkService()) {
