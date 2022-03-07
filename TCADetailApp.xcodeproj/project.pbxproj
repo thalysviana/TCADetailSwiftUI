@@ -11,6 +11,17 @@
 		770B5F7027D5488F00ACB86E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F6F27D5488F00ACB86E /* ContentView.swift */; };
 		770B5F7227D5489000ACB86E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 770B5F7127D5489000ACB86E /* Assets.xcassets */; };
 		770B5F7527D5489000ACB86E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 770B5F7427D5489000ACB86E /* Preview Assets.xcassets */; };
+		770B5F7D27D54A9C00ACB86E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 770B5F7C27D54A9C00ACB86E /* ComposableArchitecture */; };
+		770B5F8127D54CE600ACB86E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F8027D54CE600ACB86E /* Photo.swift */; };
+		770B5F8327D54DA600ACB86E /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F8227D54DA600ACB86E /* PhotoView.swift */; };
+		770B5F8527D54E8700ACB86E /* PhotoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F8427D54E8700ACB86E /* PhotoRowView.swift */; };
+		770B5F8727D5538000ACB86E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F8627D5538000ACB86E /* NetworkService.swift */; };
+		770B5F8927D558F600ACB86E /* AlbumClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F8827D558F600ACB86E /* AlbumClient.swift */; };
+		770B5F8B27D55C4A00ACB86E /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F8A27D55C4A00ACB86E /* PhotoListView.swift */; };
+		770B5F8D27D55C6800ACB86E /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F8C27D55C6800ACB86E /* AppFeature.swift */; };
+		770B5F8F27D5CC8D00ACB86E /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F8E27D5CC8D00ACB86E /* PhotoViewModel.swift */; };
+		770B5F9127D6620C00ACB86E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F9027D6620C00ACB86E /* ImageLoader.swift */; };
+		770B5F9527D6638D00ACB86E /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F9427D6638D00ACB86E /* RemoteImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +30,16 @@
 		770B5F6F27D5488F00ACB86E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		770B5F7127D5489000ACB86E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		770B5F7427D5489000ACB86E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		770B5F8027D54CE600ACB86E /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		770B5F8227D54DA600ACB86E /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		770B5F8427D54E8700ACB86E /* PhotoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRowView.swift; sourceTree = "<group>"; };
+		770B5F8627D5538000ACB86E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		770B5F8827D558F600ACB86E /* AlbumClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumClient.swift; sourceTree = "<group>"; };
+		770B5F8A27D55C4A00ACB86E /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
+		770B5F8C27D55C6800ACB86E /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
+		770B5F8E27D5CC8D00ACB86E /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		770B5F9027D6620C00ACB86E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		770B5F9427D6638D00ACB86E /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				770B5F7D27D54A9C00ACB86E /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +74,16 @@
 			isa = PBXGroup;
 			children = (
 				770B5F6D27D5488F00ACB86E /* TCADetailAppApp.swift */,
+				770B5F8627D5538000ACB86E /* NetworkService.swift */,
+				770B5F9427D6638D00ACB86E /* RemoteImageView.swift */,
+				770B5F9027D6620C00ACB86E /* ImageLoader.swift */,
+				770B5F8C27D55C6800ACB86E /* AppFeature.swift */,
+				770B5F8827D558F600ACB86E /* AlbumClient.swift */,
+				770B5F8027D54CE600ACB86E /* Photo.swift */,
+				770B5F8E27D5CC8D00ACB86E /* PhotoViewModel.swift */,
+				770B5F8A27D55C4A00ACB86E /* PhotoListView.swift */,
+				770B5F8427D54E8700ACB86E /* PhotoRowView.swift */,
+				770B5F8227D54DA600ACB86E /* PhotoView.swift */,
 				770B5F6F27D5488F00ACB86E /* ContentView.swift */,
 				770B5F7127D5489000ACB86E /* Assets.xcassets */,
 				770B5F7327D5489000ACB86E /* Preview Content */,
@@ -83,6 +115,9 @@
 			dependencies = (
 			);
 			name = TCADetailApp;
+			packageProductDependencies = (
+				770B5F7C27D54A9C00ACB86E /* ComposableArchitecture */,
+			);
 			productName = TCADetailApp;
 			productReference = 770B5F6A27D5488F00ACB86E /* TCADetailApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +146,9 @@
 				Base,
 			);
 			mainGroup = 770B5F6127D5488F00ACB86E;
+			packageReferences = (
+				770B5F7B27D54A9C00ACB86E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 770B5F6B27D5488F00ACB86E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +175,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				770B5F9527D6638D00ACB86E /* RemoteImageView.swift in Sources */,
+				770B5F8D27D55C6800ACB86E /* AppFeature.swift in Sources */,
+				770B5F8527D54E8700ACB86E /* PhotoRowView.swift in Sources */,
 				770B5F7027D5488F00ACB86E /* ContentView.swift in Sources */,
 				770B5F6E27D5488F00ACB86E /* TCADetailAppApp.swift in Sources */,
+				770B5F8927D558F600ACB86E /* AlbumClient.swift in Sources */,
+				770B5F9127D6620C00ACB86E /* ImageLoader.swift in Sources */,
+				770B5F8127D54CE600ACB86E /* Photo.swift in Sources */,
+				770B5F8727D5538000ACB86E /* NetworkService.swift in Sources */,
+				770B5F8327D54DA600ACB86E /* PhotoView.swift in Sources */,
+				770B5F8B27D55C4A00ACB86E /* PhotoListView.swift in Sources */,
+				770B5F8F27D5CC8D00ACB86E /* PhotoViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +389,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		770B5F7B27D54A9C00ACB86E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		770B5F7C27D54A9C00ACB86E /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 770B5F7B27D54A9C00ACB86E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 770B5F6227D5488F00ACB86E /* Project object */;
 }
