@@ -2,13 +2,16 @@ import Combine
 import Foundation
 import UIKit
 
-final class ImageLoader: ObservableObject {
-  
-  @Published var image = UIImage()
-  
+protocol LoadableImage: ObservableObject {
+  func downloadData()
+}
+
+final class ImageLoader: LoadableImage {
   private let session: URLSession
   private let url: String
   private var cancellable: AnyCancellable?
+  
+  @Published var image: UIImage?
   
   init(session: URLSession = .shared, url: String) {
     self.session = session

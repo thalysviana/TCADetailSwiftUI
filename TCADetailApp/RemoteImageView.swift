@@ -1,28 +1,26 @@
 import Combine
 import SwiftUI
 
-struct RemoteImageView<Placeholder: View, Content: View>: View {
+struct RemoteImageView<Placeholder: View>: View {
+  @StateObject private var imageLoader: ImageLoader
   
   private let placeholder: () -> Placeholder
-  private let content: (Image) -> Content
-  private let imageLoader: ImageLoader
-  
-  @State var imageData: UIImage?
+  private let content: (Image) -> Image
   
   init(
     url: String,
     @ViewBuilder placeholder: @escaping () -> Placeholder,
-    @ViewBuilder content: @escaping (Image) -> Content
+    @ViewBuilder content: @escaping (Image) -> Image = { _ in .init("") }
   ) {
     self.placeholder = placeholder
     self.content = content
-    self.imageLoader = ImageLoader(url: url)
+    self._imageLoader = .init(wrappedValue: .init(url: url))
   }
   
   @ViewBuilder private var imageContent: some View {
     Group {
-      if let imageData = imageData {
-        content(Image(uiImage: imageData))
+      if let image = imageLoader.image {
+        content(Image(uiImage: image))
       } else {
         placeholder()
       }
@@ -30,19 +28,15 @@ struct RemoteImageView<Placeholder: View, Content: View>: View {
   }
   
   var body: some View {
-    imageContent.onReceive(imageLoader.$image) {
-      imageData = $0
-    }
-    .onAppear(perform: imageLoader.downloadData)
+    imageContent
+      .onAppear(perform: imageLoader.downloadData)
   }
 }
 
 struct RemoteImageView_Previews: PreviewProvider {
   static var previews: some View {
-    RemoteImageView(
-      url: "",
-      placeholder: { Color.blue },
-      content: { _ in }
-    )
+    RemoteImageView(url: "") {
+      Text("Loading...")
+    }
   }
 }

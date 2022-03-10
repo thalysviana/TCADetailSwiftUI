@@ -6,17 +6,15 @@ struct PhotoRowView: View {
   
   var body: some View {
     HStack {
-      RemoteImageView(url: photo.url, placeholder: {
+      RemoteImageView(url: photo.url) {
         Image(systemName: "gear")
           .resizable()
           .background(Color.blue)
-      },
-      content: { image in
-        image
-          .resizable()
-      })
-        .scaledToFill()
-        .frame(width: 40, height: 40)
+      } content: {
+        $0.resizable()
+      }
+      .scaledToFill()
+      .frame(width: 40, height: 40)
       
       Text(photo.title)
       Spacer()
