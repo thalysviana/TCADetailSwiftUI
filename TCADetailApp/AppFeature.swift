@@ -3,11 +3,15 @@ import Foundation
 
 struct AppState: Equatable {
   var photos: IdentifiedArrayOf<Photo> = []
+  var filteredPhotos: IdentifiedArrayOf<Photo> = []
+  var searchText = ""
+  var isSearching = false
 }
 
 enum AppAction {
   case onAppear
   case albumResponse(Result<[Photo], Never>)
+  case onSearch(String)
 }
 
 struct AppEnvironment {
@@ -28,6 +32,11 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, e
     var indentifiedPhotos = IdentifiedArrayOf<Photo>()
     photos.forEach { indentifiedPhotos.append($0) }
     state.photos = indentifiedPhotos
+    return .none
+  case .onSearch(let searchText):
+    state.searchText = searchText
+    state.isSearching = !searchText.isEmpty
+    state.filteredPhotos = state.isSearching ? state.photos.filter { $0.title.lowercased().contains(searchText.lowercased()) } : []
+    return .none
   }
-  return .none
 }

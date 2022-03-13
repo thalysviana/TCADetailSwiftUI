@@ -8,7 +8,7 @@ struct PhotoListView: View {
     NavigationView {
       WithViewStore(store) { viewStore in
         List {
-          ForEach(viewStore.photos) { photo in
+          ForEach(viewStore.isSearching ? viewStore.filteredPhotos : viewStore.photos) { photo in
             NavigationLink {
               PhotoView(photo: photo)
             } label: {
@@ -16,6 +16,11 @@ struct PhotoListView: View {
             }
           }
         }
+        .searchable(text: viewStore.binding(
+            get: { $0.searchText },
+            send: { AppAction.onSearch($0) }
+          )
+        )
         .navigationTitle("Album")
         .onAppear { viewStore.send(.onAppear) }
       }
