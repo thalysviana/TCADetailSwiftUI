@@ -9,12 +9,17 @@ protocol LoadableImage: ObservableObject {
 final class ImageLoader: LoadableImage {
   private let session: URLSession
   private let url: String
+  private let urlCache: URLCache
   private var cancellable: AnyCancellable?
   
   @Published var image: UIImage?
   
-  init(session: URLSession = .shared, url: String) {
+  init(
+    session: URLSession = .shared,
+    urlCache: URLCache = .shared,
+    url: String) {
     self.session = session
+    self.urlCache = urlCache
     self.url = url
   }
   
@@ -23,14 +28,24 @@ final class ImageLoader: LoadableImage {
       return
     }
     
-    cancellable = session.dataTaskPublisher(for: url)
-      .receive(on: DispatchQueue.main)
-      .map(\.data)
-      .mapError { ImageLoaderError.downloadFailed($0.localizedDescription) }
-      .eraseToAnyPublisher()
-      .sink { _ in } receiveValue: { data in
-        self.image = UIImage(data: data) ?? UIImage()
-      }
+    let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 60.0)
+    
+    if let data = urlCache.cachedResponse(for: request)?.data {
+      self.image = UIImage(data: data)
+    } else {
+      cancellable = session.dataTaskPublisher(for: request)
+        .receive(on: DispatchQueue.main)
+        .mapError { ImageLoaderError.downloadFailed($0.localizedDescription) }
+        .eraseToAnyPublisher()
+        .sink { _ in } receiveValue: { [weak self] data, response in
+          guard let self = self else { return }
+          
+          let cachedResponse = CachedURLResponse(response: response, data: data)
+          self.urlCache.storeCachedResponse(cachedResponse, for: request)
+          
+          self.image = UIImage(data: data)
+        }
+    }
   }
 }
 
