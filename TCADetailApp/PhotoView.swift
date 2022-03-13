@@ -1,13 +1,20 @@
 import SwiftUI
 
 struct PhotoView: View {
+  let photo: Photo
+  
   var body: some View {
     VStack {
-      Image(systemName: "gear")
-        .resizable()
-        .scaledToFill()
+      RemoteImageView(url: photo.url) {
+        Image(systemName: "gear")
+          .resizable()
+          .scaledToFill()
+      } content: { image in
+        image
+          .resizable()
+      }
         .frame(width: 300, height: 300)
-      Text("Description")
+      Text(photo.title)
         .padding(.top, 40)
         Spacer()
     }
@@ -17,6 +24,6 @@ struct PhotoView: View {
 
 struct PhotoView_Previews: PreviewProvider {
   static var previews: some View {
-    PhotoView()
+    PhotoView(photo: .init(id: 1, title: "Title", url: ""))
   }
 }

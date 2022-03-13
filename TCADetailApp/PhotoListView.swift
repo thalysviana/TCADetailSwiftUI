@@ -8,8 +8,12 @@ struct PhotoListView: View {
     NavigationView {
       WithViewStore(store) { viewStore in
         List {
-          ForEach(viewStore.photos) {
-            PhotoRowView(photo: $0)
+          ForEach(viewStore.photos) { photo in
+            NavigationLink {
+              PhotoView(photo: photo)
+            } label: {
+              PhotoRowView(photo: photo)
+            }
           }
         }
         .navigationTitle("Album")
