@@ -6,6 +6,8 @@ struct RemoteImageView<Placeholder: View>: View {
   
   private let placeholder: () -> Placeholder
   private let content: (Image) -> Image
+  @State var data: Data?
+  private let imageProvider = ImageNetworkProvider()
   
   init(
     url: String,

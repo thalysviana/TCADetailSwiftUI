@@ -30,6 +30,7 @@ final class NetworkService: Networking {
 extension NetworkService {
   enum NetworkError: Error {
     case invalidUrl
+    case unknownError
     case decodeFailed(String)
   }
 }

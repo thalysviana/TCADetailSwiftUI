@@ -20,7 +20,21 @@
 		770B5F8D27D55C6800ACB86E /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F8C27D55C6800ACB86E /* AppFeature.swift */; };
 		770B5F9127D6620C00ACB86E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F9027D6620C00ACB86E /* ImageLoader.swift */; };
 		770B5F9527D6638D00ACB86E /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F9427D6638D00ACB86E /* RemoteImageView.swift */; };
+		774BFD0627E30C020014C5F9 /* ImageNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BFD0527E30C020014C5F9 /* ImageNetworkProvider.swift */; };
+		774BFD0727E30C660014C5F9 /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BFD0327E2E55F0014C5F9 /* URLProtocolMock.swift */; };
+		77C968E727DF18CD00E90120 /* TCADetailAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C968E627DF18CD00E90120 /* TCADetailAppTests.swift */; };
+		77C968EE27DF191B00E90120 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C968ED27DF191B00E90120 /* NetworkServiceTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		77C968E827DF18CD00E90120 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 770B5F6227D5488F00ACB86E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 770B5F6927D5488F00ACB86E;
+			remoteInfo = TCADetailApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		770B5F6A27D5488F00ACB86E /* TCADetailApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCADetailApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +50,11 @@
 		770B5F8C27D55C6800ACB86E /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
 		770B5F9027D6620C00ACB86E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		770B5F9427D6638D00ACB86E /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
+		774BFD0327E2E55F0014C5F9 /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
+		774BFD0527E30C020014C5F9 /* ImageNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetworkProvider.swift; sourceTree = "<group>"; };
+		77C968E427DF18CD00E90120 /* TCADetailAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCADetailAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		77C968E627DF18CD00E90120 /* TCADetailAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCADetailAppTests.swift; sourceTree = "<group>"; };
+		77C968ED27DF191B00E90120 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +66,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		77C968E127DF18CD00E90120 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -54,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				770B5F6C27D5488F00ACB86E /* TCADetailApp */,
+				77C968E527DF18CD00E90120 /* TCADetailAppTests */,
 				770B5F6B27D5488F00ACB86E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				770B5F6A27D5488F00ACB86E /* TCADetailApp.app */,
+				77C968E427DF18CD00E90120 /* TCADetailAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,6 +100,7 @@
 				770B5F6D27D5488F00ACB86E /* TCADetailAppApp.swift */,
 				770B5F8627D5538000ACB86E /* NetworkService.swift */,
 				770B5F9427D6638D00ACB86E /* RemoteImageView.swift */,
+				774BFD0527E30C020014C5F9 /* ImageNetworkProvider.swift */,
 				770B5F9027D6620C00ACB86E /* ImageLoader.swift */,
 				770B5F8C27D55C6800ACB86E /* AppFeature.swift */,
 				770B5F8827D558F600ACB86E /* AlbumClient.swift */,
@@ -91,6 +120,16 @@
 				770B5F7427D5489000ACB86E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		77C968E527DF18CD00E90120 /* TCADetailAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				774BFD0327E2E55F0014C5F9 /* URLProtocolMock.swift */,
+				77C968E627DF18CD00E90120 /* TCADetailAppTests.swift */,
+				77C968ED27DF191B00E90120 /* NetworkServiceTests.swift */,
+			);
+			path = TCADetailAppTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,6 +155,24 @@
 			productReference = 770B5F6A27D5488F00ACB86E /* TCADetailApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		77C968E327DF18CD00E90120 /* TCADetailAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77C968EC27DF18CD00E90120 /* Build configuration list for PBXNativeTarget "TCADetailAppTests" */;
+			buildPhases = (
+				77C968E027DF18CD00E90120 /* Sources */,
+				77C968E127DF18CD00E90120 /* Frameworks */,
+				77C968E227DF18CD00E90120 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				77C968E927DF18CD00E90120 /* PBXTargetDependency */,
+			);
+			name = TCADetailAppTests;
+			productName = TCADetailAppTests;
+			productReference = 77C968E427DF18CD00E90120 /* TCADetailAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -128,6 +185,10 @@
 				TargetAttributes = {
 					770B5F6927D5488F00ACB86E = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					77C968E327DF18CD00E90120 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 770B5F6927D5488F00ACB86E;
 					};
 				};
 			};
@@ -148,6 +209,7 @@
 			projectRoot = "";
 			targets = (
 				770B5F6927D5488F00ACB86E /* TCADetailApp */,
+				77C968E327DF18CD00E90120 /* TCADetailAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -159,6 +221,13 @@
 			files = (
 				770B5F7527D5489000ACB86E /* Preview Assets.xcassets in Resources */,
 				770B5F7227D5489000ACB86E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77C968E227DF18CD00E90120 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,12 +246,31 @@
 				770B5F9127D6620C00ACB86E /* ImageLoader.swift in Sources */,
 				770B5F8127D54CE600ACB86E /* Photo.swift in Sources */,
 				770B5F8727D5538000ACB86E /* NetworkService.swift in Sources */,
+				774BFD0627E30C020014C5F9 /* ImageNetworkProvider.swift in Sources */,
 				770B5F8327D54DA600ACB86E /* PhotoView.swift in Sources */,
 				770B5F8B27D55C4A00ACB86E /* PhotoListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		77C968E027DF18CD00E90120 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77C968EE27DF191B00E90120 /* NetworkServiceTests.swift in Sources */,
+				774BFD0727E30C660014C5F9 /* URLProtocolMock.swift in Sources */,
+				77C968E727DF18CD00E90120 /* TCADetailAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		77C968E927DF18CD00E90120 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 770B5F6927D5488F00ACB86E /* TCADetailApp */;
+			targetProxy = 77C968E827DF18CD00E90120 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		770B5F7627D5489000ACB86E /* Debug */ = {
@@ -359,6 +447,42 @@
 			};
 			name = Release;
 		};
+		77C968EA27DF18CD00E90120 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZB4G8WR697;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.thalysviana.TCADetailAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCADetailApp.app/TCADetailApp";
+			};
+			name = Debug;
+		};
+		77C968EB27DF18CD00E90120 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZB4G8WR697;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.thalysviana.TCADetailAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCADetailApp.app/TCADetailApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -376,6 +500,15 @@
 			buildConfigurations = (
 				770B5F7927D5489000ACB86E /* Debug */,
 				770B5F7A27D5489000ACB86E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77C968EC27DF18CD00E90120 /* Build configuration list for PBXNativeTarget "TCADetailAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77C968EA27DF18CD00E90120 /* Debug */,
+				77C968EB27DF18CD00E90120 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
