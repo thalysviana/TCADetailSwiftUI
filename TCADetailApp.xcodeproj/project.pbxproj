@@ -98,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				770B5F6D27D5488F00ACB86E /* TCADetailAppApp.swift */,
-				770B5F8627D5538000ACB86E /* NetworkService.swift */,
 				770B5F9427D6638D00ACB86E /* RemoteImageView.swift */,
+				770B5F8627D5538000ACB86E /* NetworkService.swift */,
 				774BFD0527E30C020014C5F9 /* ImageNetworkProvider.swift */,
 				770B5F9027D6620C00ACB86E /* ImageLoader.swift */,
 				770B5F8C27D55C6800ACB86E /* AppFeature.swift */,

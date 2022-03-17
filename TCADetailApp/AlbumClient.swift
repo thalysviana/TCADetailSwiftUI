@@ -15,7 +15,7 @@ struct AlbumClient: AlbumProvider {
   
   func fetchAlbums() -> Effect<[Photo], Never> {
     service
-      .get(of: [Photo].self, url: url)
+      .fetchContent(of: [Photo].self, url: url)
       .catchToEffect { result in
         switch result {
         case .success(let photos):

@@ -2,7 +2,7 @@ import Combine
 import Foundation
 
 protocol Networking {
-  func get<T: Codable>(of type: T.Type, url: String) -> AnyPublisher<T, NetworkService.NetworkError>
+  func fetchContent<T: Codable>(of type: T.Type, url: String) -> AnyPublisher<T, NetworkService.NetworkError>
 }
 
 final class NetworkService: Networking {
@@ -14,7 +14,7 @@ final class NetworkService: Networking {
     self.decoder = decoder
   }
   
-  func get<T: Codable>(of type: T.Type = T.self, url: String) -> AnyPublisher<T, NetworkError> {
+  func fetchContent<T: Codable>(of type: T.Type = T.self, url: String) -> AnyPublisher<T, NetworkError> {
     guard let url = URL(string: url) else {
       return Fail(error: NetworkError.invalidUrl).eraseToAnyPublisher()
     }
