@@ -16,7 +16,9 @@ final class NetworkServiceTests: XCTestCase {
     configuration.protocolClasses = [URLProtocolMock.self]
     
     let session = URLSession(configuration: configuration)
-    URLProtocolMock.data = try JSONEncoder().encode(photo)
+    URLProtocolMock.handle = {
+      try JSONEncoder().encode(photo)
+    }
     
     let photoExpectation = expectation(description: "Expect decoded photo")
     
@@ -29,5 +31,55 @@ final class NetworkServiceTests: XCTestCase {
       .store(in: &cancellables)
     
     wait(for: [photoExpectation], timeout: 0.1)
+  }
+  
+  func testFetchContent_GivenInvalidUrl_ShouldReturnNeworkError() throws {
+    let url = "😀"
+    let configuration = URLSessionConfiguration.default
+    configuration.protocolClasses = [URLProtocolMock.self]
+    
+    let session = URLSession(configuration: configuration)
+    
+    let receiveCompletionExpectation = expectation(description: "Expect decode error")
+    
+    let sut = NetworkService(session: session)
+    sut.fetchContent(of: Photo.self, url: url)
+      .sink(receiveCompletion: { result in
+        if case let .failure(error) = result {
+          XCTAssertEqual("\(error)", "\(NetworkError.invalidUrl)")
+          receiveCompletionExpectation.fulfill()
+        }
+      }) { _ in }
+      .store(in: &cancellables)
+    
+    wait(for: [receiveCompletionExpectation], timeout: 0.1)
+  }
+  
+  func testFetchContent_GivenInvalidData_ShouldReturnNeworkError() throws {
+    let url = "https://www.fake.url/test"
+    let dummyJSON =  "{'error': 'decodeFailed'}"
+    let jsonData = dummyJSON.data(using: .utf8)
+    
+    let configuration = URLSessionConfiguration.default
+    configuration.protocolClasses = [URLProtocolMock.self]
+    
+    let session = URLSession(configuration: configuration)
+    URLProtocolMock.handle = {
+      try JSONEncoder().encode(jsonData)
+    }
+    
+    let decodeErrorExpectation = expectation(description: "Expect decode error")
+    
+    let sut = NetworkService(session: session)
+    sut.fetchContent(of: Photo.self, url: url)
+      .sink(receiveCompletion: { result in
+        if case let .failure(error) = result {
+          XCTAssertEqual("\(error)", "\(NetworkError.decodeFailed)")
+          decodeErrorExpectation.fulfill()
+        }
+      }) { _ in }
+      .store(in: &cancellables)
+    
+    wait(for: [decodeErrorExpectation], timeout: 0.1)
   }
 }

@@ -1,30 +1,27 @@
 import Foundation
+import XCTest
 import XCTestDynamicOverlay
 
 final class URLProtocolMock: URLProtocol {
   static var data: Data?
   
-  static var requestSucceeded = true
+  static var handle: (() throws -> Data)?
   
   override class func canInit(with request: URLRequest) -> Bool { true }
   
   override class func canonicalRequest(for request: URLRequest) -> URLRequest { request }
   
   override func startLoading() {
-    if URLProtocolMock.requestSucceeded {
+    do {
+      let handle = try XCTUnwrap(URLProtocolMock.handle)
+      let data = try handle()
       client?.urlProtocol(self, didReceive: .init(), cacheStoragePolicy: .notAllowed)
-      client?.urlProtocol(self, didLoad: URLProtocolMock.data ?? .init())
+      client?.urlProtocol(self, didLoad: data)
       client?.urlProtocolDidFinishLoading(self)
-    } else {
-      client?.urlProtocol(self, didFailWithError: MockError.downloadFailed)
+    } catch {
+      client?.urlProtocol(self, didFailWithError: error)
     }
   }
   
   override func stopLoading() {}
-}
-
-extension URLProtocolMock {
-  enum MockError: Error {
-    case downloadFailed
-  }
 }

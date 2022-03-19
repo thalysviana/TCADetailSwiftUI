@@ -22,7 +22,7 @@
 		770B5F9527D6638D00ACB86E /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B5F9427D6638D00ACB86E /* RemoteImageView.swift */; };
 		774BFD0627E30C020014C5F9 /* ImageNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BFD0527E30C020014C5F9 /* ImageNetworkProvider.swift */; };
 		774BFD0727E30C660014C5F9 /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BFD0327E2E55F0014C5F9 /* URLProtocolMock.swift */; };
-		77C968E727DF18CD00E90120 /* TCADetailAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C968E627DF18CD00E90120 /* TCADetailAppTests.swift */; };
+		774BFD0B27E557E80014C5F9 /* DataTaskPublishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BFD0A27E557E80014C5F9 /* DataTaskPublishable.swift */; };
 		77C968EE27DF191B00E90120 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C968ED27DF191B00E90120 /* NetworkServiceTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,8 +52,8 @@
 		770B5F9427D6638D00ACB86E /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
 		774BFD0327E2E55F0014C5F9 /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
 		774BFD0527E30C020014C5F9 /* ImageNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetworkProvider.swift; sourceTree = "<group>"; };
+		774BFD0A27E557E80014C5F9 /* DataTaskPublishable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskPublishable.swift; sourceTree = "<group>"; };
 		77C968E427DF18CD00E90120 /* TCADetailAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCADetailAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		77C968E627DF18CD00E90120 /* TCADetailAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCADetailAppTests.swift; sourceTree = "<group>"; };
 		77C968ED27DF191B00E90120 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				770B5F6D27D5488F00ACB86E /* TCADetailAppApp.swift */,
+				774BFD0A27E557E80014C5F9 /* DataTaskPublishable.swift */,
 				770B5F9427D6638D00ACB86E /* RemoteImageView.swift */,
 				770B5F8627D5538000ACB86E /* NetworkService.swift */,
 				774BFD0527E30C020014C5F9 /* ImageNetworkProvider.swift */,
@@ -126,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				774BFD0327E2E55F0014C5F9 /* URLProtocolMock.swift */,
-				77C968E627DF18CD00E90120 /* TCADetailAppTests.swift */,
 				77C968ED27DF191B00E90120 /* NetworkServiceTests.swift */,
 			);
 			path = TCADetailAppTests;
@@ -242,6 +242,7 @@
 				770B5F8D27D55C6800ACB86E /* AppFeature.swift in Sources */,
 				770B5F8527D54E8700ACB86E /* PhotoRowView.swift in Sources */,
 				770B5F6E27D5488F00ACB86E /* TCADetailAppApp.swift in Sources */,
+				774BFD0B27E557E80014C5F9 /* DataTaskPublishable.swift in Sources */,
 				770B5F8927D558F600ACB86E /* AlbumClient.swift in Sources */,
 				770B5F9127D6620C00ACB86E /* ImageLoader.swift in Sources */,
 				770B5F8127D54CE600ACB86E /* Photo.swift in Sources */,
@@ -258,7 +259,6 @@
 			files = (
 				77C968EE27DF191B00E90120 /* NetworkServiceTests.swift in Sources */,
 				774BFD0727E30C660014C5F9 /* URLProtocolMock.swift in Sources */,
-				77C968E727DF18CD00E90120 /* TCADetailAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
