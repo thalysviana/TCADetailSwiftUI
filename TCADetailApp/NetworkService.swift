@@ -6,10 +6,10 @@ protocol Networking {
 }
 
 final class NetworkService: Networking {
-  private let session: DataTaskPublishable
+  private let session: URLSession
   private let decoder: JSONDecoder
   
-  init(session: DataTaskPublishable = URLSession.shared, decoder: JSONDecoder = .init()) {
+  init(session: URLSession = URLSession.shared, decoder: JSONDecoder = .init()) {
     self.session = session
     self.decoder = decoder
   }

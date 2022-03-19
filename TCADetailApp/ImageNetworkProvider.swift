@@ -8,9 +8,9 @@ protocol ImageNetworking {
 
 final class ImageNetworkProvider: ImageNetworking {
   private let session: URLSession
-  private let urlCache: URLCache
+  private let urlCache: URLCacheable
   
-  init(session: URLSession = .shared, urlCache: URLCache = .shared) {
+  init(session: URLSession = .shared, urlCache: URLCacheable = URLCache.shared) {
     self.session = session
     self.urlCache = urlCache
   }
@@ -29,7 +29,7 @@ final class ImageNetworkProvider: ImageNetworking {
     }
     
     return session.dataTaskPublisher(for: request)
-      .mapError { ImageNetworkError.downloadFailed($0.localizedDescription) }
+      .mapError { _ in ImageNetworkError.downloadFailed("Could not finish image download") }
       .handleEvents(receiveOutput: { [weak self] data, response in
         guard let self = self else { return }
         
@@ -46,5 +46,18 @@ extension ImageNetworkProvider {
   enum ImageNetworkError: Error {
     case invalidUrl
     case downloadFailed(String)
+  }
+}
+
+extension ImageNetworkProvider.ImageNetworkError: Equatable {
+  public static func == (lhs: ImageNetworkProvider.ImageNetworkError, rhs: ImageNetworkProvider.ImageNetworkError) -> Bool {
+    switch (lhs, rhs) {
+    case (.invalidUrl, .invalidUrl):
+      return true
+    case let (.downloadFailed(lhsString), .downloadFailed(rhsString)):
+      return lhsString == rhsString
+    default:
+      return false
+    }
   }
 }

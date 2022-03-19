@@ -13,10 +13,9 @@ final class URLProtocolMock: URLProtocol {
   
   override func startLoading() {
     do {
-      let handle = try XCTUnwrap(URLProtocolMock.handle)
-      let data = try handle()
+      let data = try URLProtocolMock.handle?()
       client?.urlProtocol(self, didReceive: .init(), cacheStoragePolicy: .notAllowed)
-      client?.urlProtocol(self, didLoad: data)
+      client?.urlProtocol(self, didLoad: data ?? .init())
       client?.urlProtocolDidFinishLoading(self)
     } catch {
       client?.urlProtocol(self, didFailWithError: error)
