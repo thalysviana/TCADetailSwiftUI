@@ -51,8 +51,6 @@ final class AppReducerTests: XCTestCase {
     ]
     let photos = identifiedPhotos.map { $0 }
     
-    let searchText = "Title 1"
-    
     store.send(.onAppear)
     
     scheduler.advance()
@@ -60,6 +58,16 @@ final class AppReducerTests: XCTestCase {
     store.receive(.albumResponse(.success(photos))) {
       $0.photos = identifiedPhotos
     }
+    
+    var searchText = ""
+    
+    store.send(.onSearch(searchText)) {
+      $0.searchText = searchText
+      $0.isSearching = false
+      $0.filteredPhotos = []
+    }
+    
+    searchText = "Title"
     
     store.send(.onSearch(searchText)) {
       $0.searchText = searchText
