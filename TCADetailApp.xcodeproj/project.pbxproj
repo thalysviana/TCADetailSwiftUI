@@ -25,6 +25,8 @@
 		774BFD0E27E5816B0014C5F9 /* URLCacheSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BFD0D27E5816B0014C5F9 /* URLCacheSpy.swift */; };
 		774BFD1127E58C270014C5F9 /* ImageNetworkProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BFD1027E58C270014C5F9 /* ImageNetworkProviderTests.swift */; };
 		774BFD1327E58F130014C5F9 /* URLCacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BFD1227E58F130014C5F9 /* URLCacheable.swift */; };
+		774BFD1727E65E660014C5F9 /* NetworkServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BFD1627E65E660014C5F9 /* NetworkServiceSpy.swift */; };
+		774BFD1927F102020014C5F9 /* AppReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BFD1827F102020014C5F9 /* AppReducerTests.swift */; };
 		77C968EE27DF191B00E90120 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C968ED27DF191B00E90120 /* NetworkServiceTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		774BFD0D27E5816B0014C5F9 /* URLCacheSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCacheSpy.swift; sourceTree = "<group>"; };
 		774BFD1027E58C270014C5F9 /* ImageNetworkProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetworkProviderTests.swift; sourceTree = "<group>"; };
 		774BFD1227E58F130014C5F9 /* URLCacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCacheable.swift; sourceTree = "<group>"; };
+		774BFD1627E65E660014C5F9 /* NetworkServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceSpy.swift; sourceTree = "<group>"; };
+		774BFD1827F102020014C5F9 /* AppReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducerTests.swift; sourceTree = "<group>"; };
 		77C968E427DF18CD00E90120 /* TCADetailAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCADetailAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77C968ED27DF191B00E90120 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +136,7 @@
 			children = (
 				774BFD0327E2E55F0014C5F9 /* URLProtocolMock.swift */,
 				774BFD0D27E5816B0014C5F9 /* URLCacheSpy.swift */,
+				774BFD1627E65E660014C5F9 /* NetworkServiceSpy.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 			children = (
 				77C968ED27DF191B00E90120 /* NetworkServiceTests.swift */,
 				774BFD1027E58C270014C5F9 /* ImageNetworkProviderTests.swift */,
+				774BFD1827F102020014C5F9 /* AppReducerTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -279,9 +285,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774BFD1927F102020014C5F9 /* AppReducerTests.swift in Sources */,
 				77C968EE27DF191B00E90120 /* NetworkServiceTests.swift in Sources */,
 				774BFD1127E58C270014C5F9 /* ImageNetworkProviderTests.swift in Sources */,
 				774BFD0727E30C660014C5F9 /* URLProtocolMock.swift in Sources */,
+				774BFD1727E65E660014C5F9 /* NetworkServiceSpy.swift in Sources */,
 				774BFD0E27E5816B0014C5F9 /* URLCacheSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

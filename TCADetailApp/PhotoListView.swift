@@ -35,8 +35,8 @@ struct PhotoListView_Previews: PreviewProvider {
         initialState: .init(),
         reducer: appReducer,
         environment: AppEnvironment(
-          mainQueue: .main,
-          albumProvider: AlbumProviderMock()
+          mainQueue: { .main },
+          albumProvider: { AlbumProviderMock() }
         )
       )
     )

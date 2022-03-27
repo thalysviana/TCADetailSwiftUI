@@ -8,10 +8,7 @@ struct TCADetailAppApp: App {
         store: .init(
           initialState: .init(),
           reducer: appReducer,
-          environment: .init(
-            mainQueue: .main,
-            albumProvider: AlbumClient()
-          )
+          environment: .live
         )
       )
     }

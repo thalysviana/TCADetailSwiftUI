@@ -8,15 +8,22 @@ struct AppState: Equatable {
   var isSearching = false
 }
 
-enum AppAction {
+enum AppAction: Equatable {
   case onAppear
   case albumResponse(Result<[Photo], Never>)
   case onSearch(String)
 }
 
 struct AppEnvironment {
-  let mainQueue: AnySchedulerOf<DispatchQueue>
-  let albumProvider: AlbumProvider
+  var mainQueue: () -> AnySchedulerOf<DispatchQueue>
+  var albumProvider: () -> AlbumProvider
+}
+
+extension AppEnvironment {
+  static let live = AppEnvironment(
+    mainQueue: { .main.eraseToAnyScheduler() },
+    albumProvider: { AlbumClient(service: NetworkService()) }
+  )
 }
 
 let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, environment in
@@ -24,14 +31,13 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, e
   case .onAppear:
     struct AlbumId: Hashable {}
     return environment
-      .albumProvider.fetchAlbums()
-      .receive(on: environment.mainQueue)
+      .albumProvider()
+      .fetchAlbums()
+      .receive(on: environment.mainQueue())
       .catchToEffect(AppAction.albumResponse)
       .cancellable(id: AlbumId(), cancelInFlight: true)
   case .albumResponse(.success(let photos)):
-    var indentifiedPhotos = IdentifiedArrayOf<Photo>()
-    photos.forEach { indentifiedPhotos.append($0) }
-    state.photos = indentifiedPhotos
+    state.photos = IdentifiedArrayOf<Photo>.init(uniqueElements: photos)
     return .none
   case .onSearch(let searchText):
     state.searchText = searchText
