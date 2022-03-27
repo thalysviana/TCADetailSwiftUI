@@ -3,7 +3,7 @@ import XCTest
 import XCTestDynamicOverlay
 
 final class URLProtocolMock: URLProtocol {
-  static var data: Data?
+  private static var data: Data?
   
   static var handle: (() throws -> Data)?
   
